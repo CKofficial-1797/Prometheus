@@ -12,12 +12,12 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD4fSnSgx5hm2hL0mxF4Ojb0e4dpZJWGq8",
-  authDomain: "prometheus-be323.firebaseapp.com",
-  projectId: "prometheus-be323",
-  storageBucket: "prometheus-be323.firebasestorage.app",
-  messagingSenderId: "757077763473",
-  appId: "1:757077763473:web:817fecd0636126b5fc2630"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
 // Initialize Firebase
