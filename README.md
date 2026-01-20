@@ -69,36 +69,40 @@ Prometheus centralizes all technical knowledge into one AI-driven system:
 ---
 ## Screenshots 
 ### Authentication (using Clerk)
+The authentication flow is powered by Clerk, enabling secure multi-tenant authentication with session management. Users must authenticate before accessing any project, ensuring that all repository data, AI interactions, and usage credits are strictly scoped to the authenticated user and associated project, providing complete isolation across teams and tenants.
 <img width="666" height="923" alt="image" src="https://github.com/user-attachments/assets/699c0e6a-f3c3-4abc-9162-c6651571a03d" />
 
 ### Team Invite 
+Each repository project supports team-based collaboration. Users can invite teammates to a project, enabling shared access to repository insights, AI queries, and meeting summaries.
 <img width="1912" height="929" alt="image" src="https://github.com/user-attachments/assets/01b20589-1049-4d2d-a66b-a0747f9afcc5" />
 
-The profiles of joined members in specific repository project would be shown at just left of the invite button.
+The avatars of joined members are displayed next to the invite button, providing quick visibility into active collaborators for the selected project.
 
 <img width="1909" height="909" alt="image" src="https://github.com/user-attachments/assets/6c915f09-6536-4232-9daf-93a4d5424bc3" />
 
 ### Make Projects 
-Your have to name your project then paste your github repository link in the format shown in image .
+Users can create a new project by providing a project name and a valid GitHub repository URL in the specified format. Each project represents an isolated workspace where repository data, embeddings, and AI interactions are managed independently.
 <img width="1893" height="762" alt="image" src="https://github.com/user-attachments/assets/498905ab-cf46-4e6b-94d3-54096fa9de00" />
 
-First check whether you have enough amount of credits to make projects or not , if not then you have to buy credits .
+Before project creation, the system checks whether the user has sufficient AI credits available. If credits are insufficient, the user is prompted to purchase additional credits.
 
 <img width="1919" height="847" alt="image" src="https://github.com/user-attachments/assets/c9f016c4-4157-45c2-b1dc-ddb13244d560" />
 
-If sufficient credits are available, the project is processed through a Retrieval-Augmented Generation (RAG) pipeline, where embeddings of the repository’s commits are generated and used to provide contextual summaries and intelligent responses.
+Once credits are available, the repository is processed through a Retrieval-Augmented Generation (RAG) pipeline, where source files and commits are summarized, embedded, and indexed to enable semantic search and intelligent responses.
 
 <img width="1905" height="912" alt="image" src="https://github.com/user-attachments/assets/32c61d83-ca21-493e-ba17-a9145ccdcd58" />
 
 ### Buying Credits to use the Platform (Stripe)
-A clean billing dashboard for the Prometheus SaaS app showing the user’s available credits, credit usage rules, and an option to purchase more credits.
+Prometheus uses a credit-based usage model backed by Stripe. The billing dashboard displays the user’s available credits, usage rules, and purchase options, with payments securely handled via Stripe.
+
+For each project, the required credits are dynamically calculated based on the total number of source files extracted from the linked GitHub repository, ensuring that credit consumption scales proportionally with repository size and indexing cost. Credits are strictly enforced across all AI-powered features.
 
 <img width="1892" height="975" alt="image" src="https://github.com/user-attachments/assets/979169be-96e2-43fd-9cdc-38ce62d81679" />
 
 <img width="1920" height="980" alt="image" src="https://github.com/user-attachments/assets/73a02c1e-8beb-471a-8a8c-ad624b607fb4" />
 
-### Meetings (record the detailed summary of important issues discussed in the meeting provided as Audio file (handled by Assembly AI ) )
-
+### Meetings ( Assembly AI  )
+Prometheus allows users to upload recorded meeting audio files. These recordings are transcribed using AssemblyAI, and the system automatically extracts key discussion points, issues, and summaries.
 <img width="1913" height="897" alt="image" src="https://github.com/user-attachments/assets/c34c689c-5a5b-47e6-aee5-fc8ecb94bba7" />
 <img width="1912" height="1008" alt="image" src="https://github.com/user-attachments/assets/df782dc8-e493-4111-978d-7971b1c78006" />
 <!-- <img width="1916" height="980" alt="image" src="https://github.com/user-attachments/assets/a44126be-0150-4067-b139-c28441b7578e" />
@@ -107,7 +111,7 @@ A clean billing dashboard for the Prometheus SaaS app showing the user’s avail
 
 <img width="1902" height="899" alt="image" src="https://github.com/user-attachments/assets/b0b98de9-2fa0-4eb0-aed5-7767df389e98" /> -->
 
-By CLicking the View Meeting we would be redirect to the specific meeting page where issues would be enlisted 
+Clicking View Meeting navigates to a dedicated meeting page, where all extracted issues and summaries are listed for easy reference and follow-up.
 
 <!-- <img width="1899" height="899" alt="image" src="https://github.com/user-attachments/assets/dc76f8c0-2c19-4f09-a913-8c368672d779" /> -->
 
@@ -115,9 +119,10 @@ By CLicking the View Meeting we would be redirect to the specific meeting page w
 <img width="1916" height="980" alt="image" src="https://github.com/user-attachments/assets/29f6ec37-991a-4944-be3d-0e568a045a4c" />
 
 
-(I have used a small sample of  meeting audio so it is showing just specific small details only)
+> (Note: A short sample meeting audio was used for demonstration, so only limited details are shown.)
 
 ### Ask Questions Related to the Repository project selected 
+Prometheus supports repository-aware Q&A using a RAG pipeline over indexed code embeddings. Users can optionally save answers, making them visible to all team members within the same project. Saved Q&A entries are persisted via tRPC APIs with strict project-level isolation, enabling shared, reusable knowledge across teams.
 <img width="1905" height="989" alt="image" src="https://github.com/user-attachments/assets/458c87eb-a127-48c9-828a-7fc9dd6ef77d" />
 <img width="1878" height="983" alt="image" src="https://github.com/user-attachments/assets/bb007ac9-ba9e-410b-b0ca-2bc678197047" />
 <img width="1920" height="991" alt="image" src="https://github.com/user-attachments/assets/0fbceec9-351a-40de-8d66-247d75a6f988" />
