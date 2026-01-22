@@ -184,6 +184,18 @@ Meeting Audio
 
 > *Deployment pending due to limited availability of production-grade LLM API tokens required for reliable operation.
 
+## References
+- Next.js Documentation — https://nextjs.org/docs  
+- Google Gemini API — https://ai.google.dev  
+- LangChain JS — https://js.langchain.com  
+- pgvector — https://github.com/pgvector/pgvector  
+- AssemblyAI Docs — https://www.assemblyai.com/docs  
+- Clerk Auth — https://clerk.com/docs  
+- Stripe Docs — https://stripe.com/docs  
+- GitHub REST API — https://docs.github.com/en/rest  
+- tRPC — https://trpc.io/docs
+
+
 ##  Vision
 
 Prometheus is not a chatbot.  
